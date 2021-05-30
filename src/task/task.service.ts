@@ -1,16 +1,13 @@
 import { Task } from "./task.entity";
 import { getRepository } from "typeorm";
-import {createConnection} from "typeorm";
-
-// createConnection method will automatically read connection options
-// from your ormconfig file or environment variables
-
 
 class TaskService{
-    private connection = createConnection();
 
-    index(req, res) {
-        res.send(`Retornar todas as tasks`)
+    async index(req, res) {
+        const taskRepository = getRepository(Task)
+        const tasks = await taskRepository.find()
+        console.log(tasks)
+        res.json(tasks)
     }
 
     unique(taskId: Number): String {
@@ -18,13 +15,11 @@ class TaskService{
         return 'Dados sobre a task: ${taskId}'
     }
 
-    create(task: Task): String {
+    async create(task: Task): Promise<String> {
+        const taskRepository = getRepository(Task)
+        const tasks = await taskRepository.save(task)
         console.log('Salvando a task no banco de dados', task)
         return 'Task salva!'
-    }
-
-    delete(task: Task): String{ // Só pode deletar a task se ela estiver com status false (inativa)
-        return ''
     }
 }
 

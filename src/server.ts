@@ -1,6 +1,7 @@
 import express from 'express';
 import routes from './app/app.routes';
 import middlewares from './app/app.middleware';
+import './database/connection';
 
 const app = express()
 
