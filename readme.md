@@ -1,1 +1,1 @@
-Boilerplate API ExpressJS - Typescript (No database)
+Boilerplate API ExpressJS - Typescript (com database)
