@@ -8,5 +8,6 @@ createConnection({
     username: "postgres",
     password: "abc123",
     database: "test",
+    migrations: ["./migrations/*.ts"],
     entities: [Task]
 });

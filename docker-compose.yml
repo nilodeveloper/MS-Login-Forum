@@ -8,3 +8,20 @@ services:
     restart: always
     environment:
       POSTGRES_PASSWORD: example
+    networks:
+      - rede  
+
+  node:
+    depends_on: 
+      - db
+    build:
+      context: .
+      dockerfile: Dockerfile.node
+    ports: 
+      - 3000:3000  
+    networks:
+      - rede 
+
+networks:
+  rede:
+    driver: bridge  
