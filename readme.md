@@ -1,8 +1,6 @@
 # Boilerplate API ExpressJS - Typescript (com database)
 
 Dependências:
-- ExpressJS
-- Postgresql
 - Docker & Docker-compose
 
 # Como levantar o projeto
