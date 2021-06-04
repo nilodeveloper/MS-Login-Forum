@@ -3,11 +3,11 @@ import { Task } from '../task/task.entity'
 
 createConnection({
     type: "postgres",
-    host: "localhost",
+    host: "db",
     port: 5432,
     username: "postgres",
-    password: "abc123",
-    database: "test",
+    password: "example",
+    database: "postgres",
     migrations: ["./migrations/*.ts"],
     entities: [Task]
 });
