@@ -6,7 +6,6 @@ class TaskService{
     async index(req, res) {
         const taskRepository = getRepository(Task)
         const tasks = await taskRepository.find()
-        console.log(tasks)
         res.json(tasks)
     }
 

@@ -6,6 +6,8 @@ services:
   db:
     image: postgres
     restart: always
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
     environment:
       POSTGRES_PASSWORD: example
     networks:
