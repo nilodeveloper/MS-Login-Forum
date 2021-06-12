@@ -1,4 +1,4 @@
-# Boilerplate API ExpressJS - Typescript (com database)
+# Microserviço de Login & Registro
 
 Dependências:
 - Docker & Docker-compose
