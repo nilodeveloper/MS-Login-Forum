@@ -1,5 +1,6 @@
 import { User } from "./user.entity";
 import { getRepository } from "typeorm";
+import message from './user.constants.json';
 
 class UserService{
 
@@ -12,8 +13,11 @@ class UserService{
     async create(user: User, res): Promise<any> {
         const userRepository = getRepository(User)
         const newUser = await userRepository.save(user)
-        console.log('Salvando user no banco de dados', newUser)
-        res.json({res: "Usuario salvo com sucesso"})
+        res.status(201).json({
+            res: message["user.createUser"],
+            status: 201,
+            user: newUser
+        })
     }
 }
 
