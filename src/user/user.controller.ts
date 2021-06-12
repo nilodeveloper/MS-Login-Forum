@@ -1,11 +1,13 @@
+import UserService from './user.service';
+
 class UserController{
 
     index(req, res) {
-        res.send('Página do usuári0')
+        UserService.getUser(req, res)
     }
 
-    unique(req, res){
-        res.send('Usuário único: ' + req.params.id)
+    create(req, res){
+        UserService.create(req.body, res)
     }
 }
 

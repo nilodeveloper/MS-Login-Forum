@@ -1,5 +1,5 @@
 import { createConnection } from "typeorm";
-import { Task } from '../task/task.entity'
+import { User } from '../user/user.entity'
 
 createConnection({
     type: "postgres",
@@ -9,5 +9,6 @@ createConnection({
     password: "example",
     database: "postgres",
     migrations: ["./migrations/*.ts"],
-    entities: [Task]
+    synchronize: true,
+    entities: [User]
 });
