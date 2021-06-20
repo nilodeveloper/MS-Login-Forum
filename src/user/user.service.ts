@@ -1,6 +1,7 @@
 import { User } from "./user.entity";
 import { getRepository } from "typeorm";
 import message from './user.constants.json';
+import UserValidator from "./user.validator";
 
 class UserService{
 
@@ -12,6 +13,7 @@ class UserService{
 
     async create(user: User, res): Promise<any> {
         const userRepository = getRepository(User)
+        const userValid = UserValidator.check(user)
         const newUser = await userRepository.save(user)
         res.status(201).json({
             res: message["user.createUser"],
