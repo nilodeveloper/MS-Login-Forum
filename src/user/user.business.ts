@@ -9,10 +9,14 @@ class UserBusiness{
         // }
     }
 
-    async login(data){
+    async login(data, res){
         const type = await UserServiceBusiness.getTypeOfUser(data.username);
-        if(type <= 0){
-            throw message['user.typeNotLogin']
+        if(type){
+            if(type <= 0){
+                throw message['user.typeNotLogin']
+            }
+        }else{
+            throw 'usuario não cadastrado ou senha incorreta'
         }
     }
 }

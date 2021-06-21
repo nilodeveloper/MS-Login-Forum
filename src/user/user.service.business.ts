@@ -1,15 +1,18 @@
 import { User } from "./user.entity";
 import { getRepository } from "typeorm";
+import UserService from './user.service';
 
 class UserServiceBusiness{
 
     async getTypeOfUser(username: string) {
-        const userRepository = getRepository(User)
-        const user = await userRepository.find({ where: { username: username } });
-        if(user)
-            return user[0].type;
-        else
-            throw 'Usuário não cadastrado ou senha inválida'    
+        const exist = await UserService.userExist(username)
+        if(exist){
+            const userRepository = getRepository(User)
+            const user = await userRepository.find({ where: { username: username } });
+            return user[0].type;   
+        }else{
+            return false
+        }
     }
 }
 

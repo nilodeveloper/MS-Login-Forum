@@ -35,6 +35,16 @@ class UserService{
             })
         }
     }
+
+    async userExist(username){
+        const userRepository = getRepository(User)
+        const userLogin = await userRepository.find({ where: { username: username } });
+        if(userLogin.length != 0){
+            return true
+        }else{
+            return false
+        }
+    }
 }
 
 export default new UserService();
