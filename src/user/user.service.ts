@@ -1,7 +1,6 @@
 import { User } from "./user.entity";
 import { getRepository } from "typeorm";
 import message from './user.constants.json';
-import UserValidator from "./user.validator";
 
 class UserService{
 
@@ -19,7 +18,22 @@ class UserService{
             status: 201,
             user: newUser
         })
-        console.log('Regra de banco OK!')
+    }
+
+    async login(user: User, res): Promise<any> {
+        const userRepository = getRepository(User)
+        const userLogin = await userRepository.find({ where: { username: user.username } });
+        if(userLogin[0]){
+            res.status(200).json({
+                res: message["user.loginSuccess"],
+                status: 200
+            })
+        }else{
+            res.status(400).json({
+                res: message["user.notFoundLogin"],
+                status: 400
+            })
+        }
     }
 }
 

@@ -9,11 +9,21 @@ class UserController{
         UserService.getUser(req, res);
     }
 
-    async create(req, res, next){
+    async create(req, res){
         try{
-            UserValidator.create(req.body, res);
-            UserBusiness.create(req.body, res);
+            UserValidator.create(req.body);
+            UserBusiness.create(req.body);
             UserService.create(req.body, res);
+        }catch(e){
+            return res.status(400).json({error: e})
+        }
+    }
+
+    async login(req, res){
+        try{
+            UserValidator.login(req.body);
+            await UserBusiness.login(req.body);
+            UserService.login(req.body, res);
         }catch(e){
             return res.status(400).json({error: e})
         }

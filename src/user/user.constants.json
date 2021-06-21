@@ -1,3 +1,8 @@
 {
-    "user.createUser": "Usuário criado com sucesso!"
+    "user.createUser": "Usuário criado com sucesso!",
+    "user.invalidUser": "Usuário inválido",
+    "user.descartName": "Nome impróprio",
+    "user.typeNotLogin": "Esse tipo de usuário não pode se logar",
+    "user.notFoundLogin": "usuário e/ou senha inválidos",
+    "user.loginSuccess": "Usuário logado com sucesso"
 }
