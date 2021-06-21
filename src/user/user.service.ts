@@ -13,8 +13,7 @@ class UserService{
 
     async create(user: User, res): Promise<any> {
         const userRepository = getRepository(User)
-        const 
-        newUser = await userRepository.save(user)   
+        const newUser = await userRepository.save(user)   
         res.status(201).json({
             res: message["user.createUser"],
             status: 201,
