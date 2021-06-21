@@ -22,7 +22,7 @@ class UserController{
     async login(req, res){
         try{
             UserValidator.login(req.body);
-            await UserBusiness.login(req.body, res);
+            await UserBusiness.login(req.body);
             UserService.login(req.body, res);
         }catch(e){
             return res.status(400).json({error: e})

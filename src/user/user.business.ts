@@ -9,7 +9,7 @@ class UserBusiness{
         // }
     }
 
-    async login(data, res){
+    async login(data){
         const type = await UserServiceBusiness.getTypeOfUser(data.username);
         if(type){
             if(type <= 0){
