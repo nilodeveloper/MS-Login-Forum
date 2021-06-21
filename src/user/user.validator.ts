@@ -1,7 +1,7 @@
 import * as yup from 'yup';
 
 class UserValidator{
-  check(user, res){
+  create(user, res){
     let schema = yup.object().shape({
       username: yup.string().required(),
       email: yup.string().required(),
@@ -16,15 +16,11 @@ class UserValidator{
       .then(function (valid) {
         return valid
       });
-      
-      try{
-        if(!isValid){
-          throw 'Usuário inválido'
-        }  
-      }catch(e){
-        res.status(400).send(e)
-      }
-    }
+
+    if(!isValid){
+      throw 'Usuário inválido'
+    }  
+  }
 }
 
 export default new UserValidator();

@@ -13,13 +13,14 @@ class UserService{
 
     async create(user: User, res): Promise<any> {
         const userRepository = getRepository(User)
-        let newUser
+        const 
         newUser = await userRepository.save(user)   
         res.status(201).json({
             res: message["user.createUser"],
             status: 201,
             user: newUser
         })
+        console.log('Regra de banco OK!')
     }
 }
 
