@@ -3,10 +3,7 @@ import UserServiceBusiness from './user.service.business';
 class UserBusiness{
 
     async create(data){
-        // const type = await UserServiceBusiness.getTypeOfUser(data.username, data.type);
-        // if(type <= 0){
-        //     throw message['user.typeNotRegistable']
-        // }
+        console.log('data create user', data)
     }
 
     async login(data){
