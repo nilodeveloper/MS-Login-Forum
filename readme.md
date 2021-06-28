@@ -1,4 +1,4 @@
-# Microserviço de Login & Registro
+# Microservice de Login & Registro
 
 Dependências:
 - Docker & Docker-compose
